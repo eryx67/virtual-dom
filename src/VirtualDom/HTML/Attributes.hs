@@ -72,7 +72,7 @@ class_ = attributes . at "class"
 classes :: Traversal' HTMLElement [JSString]
 classes =
   class_ .
-  anon "" (== "") .
+  anon (toJSString (""::String)) (eqRef $ toJSString (""::String)) .
   iso (map toJSString . words . fromJSString)
       (toJSString . unwords . map fromJSString)
   where isEmptyStr = (== ("" :: String))

@@ -1,6 +1,7 @@
 module VirtualDom
        (module VirtualDom.HTML, with, into, renderTo, bodyContainer,
-        newTopLevelContainer, on, DOMDelegator, initDomDelegator)
+        newTopLevelContainer, on, DOMDelegator, initDomDelegator,
+        VNodePresentation)
        where
 
 import Control.Lens hiding (coerce, children)

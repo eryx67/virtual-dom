@@ -50,7 +50,7 @@ foreign import javascript safe
 -- element or not.
 _HTMLElement :: Traversal' HTML HTMLElement
 _HTMLElement f (HTML vNode)
-  | ffiGetVNodeType vNode == "VirtualNode" =
+  | ffiGetVNodeType vNode `eqRef` toJSString ("VirtualNode"::String) =
     fmap (\(HTMLElement vNode') -> HTML vNode')
          (f (HTMLElement vNode))
   | otherwise = pure (HTML vNode)
